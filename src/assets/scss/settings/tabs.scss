@@ -1,0 +1,40 @@
+///* ========================================================================
+//   #TABS
+//   ======================================================================== */
+
+//
+// Tabs `wrapper`
+//
+$tabs-list-padding: 20px 30px;
+$tabs-list-background-color: $white;
+$tabs-list-border-color: $grey-400;
+
+$tabs-list-border-width: 1px;
+$tabs-list-border-radius: $base-border-radius;
+
+
+//
+// Individual tab, tab link
+//
+$tabs-item-margin: 0 30px 0 0;
+
+$tabs-link-padding: 0 0 21px 0; // to override tab header's border-bottom
+$tabs-link-font-size: $h6-font-size;
+$tabs-link-color: $grey-800;
+
+$tabs-link-hover-color: $gunmetal-200;
+
+$tabs-link-active-color: $gunmetal-300;
+$tabs-link-active-border-width: 2px;
+$tabs-link-active-border-color: $blue-300;
+
+
+//
+// Tab content
+//
+$tabs-pane-background-color: $white;
+$tabs-pane-margin: 0;
+$tabs-pane-padding: 20px 30px;
+$tabs-pane-border-radius: $base-border-radius;
+$tabs-pane-border-color: $grey-400;
+$tabs-pane-border-width: 1px;

@@ -1,0 +1,21 @@
+/* ==========================================================================
+   #LANDING CARD
+   ========================================================================== */
+
+.c-landing-card {
+	padding: rem(40px) rem(40px) rem(40px) $spacer;
+	border: $base-border-width solid $base-border-color;
+	border-radius: $base-border-radius;
+	background-color: $base-background-color;
+	text-align: center;
+}
+
+.c-landing-card__img {
+	margin-bottom: rem(20px);
+}
+
+.c-landing-card__title {
+	margin: 0 0 $spacer-small;
+	font-size: $h6-font-size;
+	font-weight: $font-weight-bold;
+}

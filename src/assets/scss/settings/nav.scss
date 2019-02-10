@@ -1,0 +1,24 @@
+///* ========================================================================
+//   #NAV
+//   ======================================================================== */
+
+
+$nav-item-margin: 0 20px 0 0;
+
+
+$nav-link-color: $white;
+$nav-link-active-color: $white;
+$nav-link-font-size: $text-font-size;
+$nav-link-font-weight: $font-weight-normal;
+
+
+// Nav toggle (hamburger icon)
+$nav-toggle-width: 30px; // [1]
+$nav-toggle-height: 30px;
+
+// Nav toggle bar
+$nav-toggle-bar-width: 30px; // [1]
+$nav-toggle-bar-height: 4px;
+$nav-toggle-bar-border-radius: $base-border-radius;
+$nav-toggle-bar-background-color: $gunmetal-200;
+

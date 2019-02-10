@@ -1,0 +1,102 @@
+/* ==========================================================================
+   #CARD
+   ========================================================================== */
+
+/**
+ * A simple component to apply card-like style, used with genearal widgets that
+ * have sub-components in it.
+ */
+
+.c-card {
+	position: relative;
+	border: $base-border-width solid $base-border-color;
+	border-radius: $base-border-radius;
+	background-color: $base-background-color;
+
+	&--shadow{
+		box-shadow: 0 10px 60px 0 rgba(29, 29, 31, .09);
+	}
+
+	/**
+	 * 1. Display a scrollbar if the content of the card is larger than the
+	 *    card's width.
+	*/
+
+	&--responsive {
+		overflow: auto; /* [1] */
+	}
+
+
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: rem(25px) $spacer;
+	}
+
+	&__header{
+		padding: rem(15px) $spacer;
+		border-bottom: 1px solid #e6eaee;
+		background-color: #fafbfc;
+
+		&--transparent {
+			background-color: transparent;
+		}
+
+	}
+
+	&__title {
+		margin: 0;
+		font-size: $h5-font-size;
+	}
+
+	&__meta {
+		color: $color-mute;
+		font-size: $text-small-font-size;
+	}
+
+	&__icon {
+		display: flex;
+		position: absolute;
+		top: -35px;
+		right: 0;
+		left: 0;
+		align-items: center;
+		justify-content: center;
+		width: 70px;
+		height: 70px;
+		margin: 0 auto;
+		padding: rem(10px);
+		border-radius: 100%;
+		color: #fff;
+		font-size: 1.75rem;
+		background: #2ea1f8;
+		background: linear-gradient(180deg, #2ea1f8, #1990ea);
+	}
+
+	&__body{
+		padding: 1.875rem;
+	}
+
+	&__footer{
+		display: flex;
+		justify-content: space-between;
+		padding: rem(15px) $spacer;
+		border-top: $base-border-width solid $base-border-color;
+	}
+
+	&__return a{
+		color: #249533;
+		font-size: 15px;
+		font-weight: bold;
+
+		&:before{
+			font-family: FontAwesome;
+			content: "\f0ab";
+			color: #249533;
+			margin-right: 5px;
+		}
+	}
+}
+
+

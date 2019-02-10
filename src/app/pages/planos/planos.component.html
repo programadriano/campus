@@ -1,0 +1,141 @@
+<app-header></app-header>
+<div class="c-toolbar u-marginBottom-m">
+	<h3 class="c-toolbar__title has-divider">Produtos</h3>
+	<h5 class="c-toolbar__meta u-marginRight-auto"></h5>
+
+	<button (click)="addNewPlain()" class="c-button c-button--success">
+		Novo Produto
+	</button>
+</div>
+
+
+<!-- container -->
+<div class="container-fluid">
+	<div class="row">
+		<!-- left -->
+		<div class="col-sm-8">
+			<div class="c-card c-card--shadow">
+				
+
+				<!-- card content -->
+				<div class="row u-padding-m">
+
+					<div class="col-4">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">Código de barras</label>
+							<input class="c-input" #title [class.c-input--danger]="validaTitle" name="title" id="input1" value="{{comercialP.title}}"
+							 type="text" placeholder="Código de barras" />
+							<p *ngIf="validaTitle" class="u-color-danger u-marginTop-s u-text-uppercase">Este campo é obrigatório</p>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">Nome</label>
+							<input #url_movie name="url_movie" class="c-input" id="input1" value="{{comercialP.url_movie}}" type="text"
+							 placeholder="Nome" />
+							<p *ngIf="validaUrlVideo" class="u-color-danger u-marginTop-s u-text-uppercase">Este campo é obrigatório</p>
+						</div>
+					</div>
+
+					<div class="col-4">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">Preço</label>
+							<input #url_movie name="url_movie" class="c-input" id="input1" value="{{comercialP.url_movie}}" type="number"
+							 placeholder="Preço" />
+							<p *ngIf="validaUrlVideo" class="u-color-danger u-marginTop-s u-text-uppercase">Este campo é obrigatório</p>
+						</div>
+					</div>
+				</div><!-- ./end card content -->
+
+				<!-- footer -->
+				<footer class="c-card__footer u-flex u-justify-end">
+					<button #btnSend class="c-button c-button--success" (click)="
+          sendComercialPlain(
+                editoriaSelect.value,
+                title.value,
+                url_movie.value,
+                description.value,
+                monday.checked,
+                tuesday.checked,
+                wednesday.checked,
+                thursday.checked,
+                friday.checked,
+                saturday.checked,
+                sunday.checked
+              )
+            ">
+						Publicar novo plano comercial
+					</button>
+				</footer>
+				<!-- ./end footer -->
+			</div>
+		</div>
+
+		<!-- right -->
+		<div class="col-sm-4">
+			<div class="c-messages">
+				<cdk-virtual-scroll-viewport itemSize="50" class="c-messages">
+					<header class="u-padding-s u-bg-secondary u-border-top">
+						<h2 class="u-h4 u-text-normal u-marginBottom-s u-flex u-align-items-center">
+							<i class="u-opacity-heavy fa fa-paper-plane-o u-marginRight-xs"></i> Lista de programas
+							<span class="u-marginLeft-xs u-text-tiny u-marginRight-auto">
+								<i class="fa fa-circle u-color-success"></i>
+							</span>
+						</h2>
+						<div class="c-field has-icon-right">
+							<input class="c-input" type="text" placeholder="Buscar programas" (input)="onSearchChange($event.target.value)" />
+							<span class="c-field__icon"> <i class="fa fa-search"></i> </span>
+						</div>
+					</header>
+
+					<div class="c-table-responsive@desktop">
+						<table class="c-table u-marginBottom-s">
+							<thead class="c-table__head c-table__head--slim">
+								<tr class="c-table__row">
+									<th class="c-table__cell c-table__cell--head u-text-right">
+										<span class="u-hidden-visually">Ações</span>
+									</th>
+								</tr>
+							</thead>
+
+							<tbody>
+								<tr class="c-table__row" *cdkVirtualFor="let produto of comercialPlain">
+									<td class="c-table__cell">
+										<div class="o-media">
+											<div class="o-media__img u-marginRight-xs">
+												<div class="c-avatar c-avatar--xs">
+													<img class="u-border-rounded" style="width: 66px;height: 46px;" src="../../../assets/images/producs.png"
+													 alt="" />
+												</div>
+											</div>
+											<div class="o-media__body">
+												{{ produto.codigoBarras }}
+												<small class="u-block u-text-mute">{{
+													produto.nome
+													}}</small>
+											</div>
+										</div>
+									</td>
+
+									<td class="c-table__cell u-text-right">
+										<a (click)="getComercialPlainById(comercial._id, comercial.title)" class="c-tooltip c-tooltip--top u-marginRight-m"
+										 aria-label="Editar projeto">
+											<i class="fa fa-pencil u-color-info u-text-large" aria-hidden="true"></i>
+										</a>
+										<a (click)="delete(comercial._id, comercial.title)" class="c-tooltip c-tooltip--top" aria-label="Deletar">
+											<i class="fa fa-trash-o u-color-danger u-text-large" aria-hidden="true"></i>
+										</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</cdk-virtual-scroll-viewport>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- ./end container -->
+
+<app-footer></app-footer>

@@ -1,0 +1,34 @@
+///* ========================================================================
+//   #INPUTS
+//   ======================================================================== */
+
+$input-padding: rem(9.5px) rem(15px) !default;
+$input-focus-color: $gunmetal-200;
+
+$input-border-color: $grey-400;
+$input-focus-border-color: $blue-300;
+$input-border-width: $base-border-width;
+$input-border-radius: $base-border-radius;
+
+$input-font-weight: $font-weight-normal;
+$input-font-size: $text-font-size;
+
+$input-placeholder-color: rgba($gunmetal-200, 0.5);
+$input-placeholder-font-weight: $font-weight-normal;
+
+$input-disabled-background-color: $grey-300;
+$input-disabled-border-color: $grey-400;
+$input-disabled-color: rgba($gunmetal-200, 0.5);
+
+$textarea-font-weight: $font-weight-normal;
+$textarea-font-size: $text-font-size;
+
+// Different states: success, error
+$input-success-border-color: $color-success;
+$input-success-color: $color-success;
+
+$input-warning-border-color: $color-warning;
+$input-warning-color: $color-warning;
+
+$input-danger-border-color: $color-danger;
+$input-danger-color: $color-danger;

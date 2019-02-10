@@ -1,0 +1,30 @@
+///* ========================================================================
+//   #PROGRESS
+//   ======================================================================== */
+
+$progress-height: 20px;
+$progress-margin: 0 0 15px 0;
+$progress-border-radius: 20px;
+$progress-background-color: #E2E7EE;
+
+
+//
+// size variations
+//
+$progress-xsmall-height: 2px;
+$progress-small-height:  4px;
+$progress-medium-height: 8px;
+
+
+//
+// color variations
+//
+$progress-bar-primary-background-color: $gunmetal-200; // DEV NOTE: CHANGE THIS COLOR TO: $color-primary
+$progress-bar-success-background-color: $color-success;
+$progress-bar-info-background-color: $color-info;
+$progress-bar-danger-background-color: $color-danger;
+$progress-bar-warning-background-color: $color-warning;
+$progress-bar-fancy-background-color: $color-fancy;
+
+
+

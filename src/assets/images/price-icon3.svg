@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="40" height="40" rx="8"></rect>
+        <linearGradient x1="50%" y1="-2.22044605e-14%" x2="50%" y2="98.4853316%" id="linearGradient-2">
+            <stop stop-color="#2EA1F8" offset="0%"></stop>
+            <stop stop-color="#1990EA" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Source-Sans---White-Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="P3---Pricing" transform="translate(-824.000000, -345.000000)">
+            <g id="Plans" transform="translate(395.000000, 346.000000)">
+                <g id="Plan-3" transform="translate(400.000000, 0.000000)">
+                    <g id="Icon" transform="translate(30.000000, 0.000000)">
+                        <g id="Base">
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <rect stroke="#2CA0F7" stroke-width="1" x="-0.5" y="-0.5" width="41" height="41" rx="8"></rect>
+                        </g>
+                        <polygon fill="url(#linearGradient-2)" points="15 11 15 22 18 22 18 31 25 19 21 19 25 11"></polygon>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

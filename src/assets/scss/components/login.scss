@@ -1,0 +1,200 @@
+/* ==========================================================================
+   #LOGIN
+   ========================================================================== */
+
+.c-login-wrapper {
+	position: relative;
+	height: 100%;
+}
+
+.c-login {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 450px;
+	margin: auto;
+	transform: translate(-50%, -50%);
+	border: $base-border-width solid $base-border-color;
+	border-radius: $base-border-radius;
+	background-color: $base-background-color;
+
+	@include respond-to($breakpoint-mobile) {
+		width: 95%;
+		margin-top: $spacer-large;
+		margin-bottom: $spacer-xlarge;
+	}
+}
+
+.c-login__head {
+	position: relative;
+	padding: rem(50px) 0 $spacer;
+	border-bottom: $base-border-width solid $base-border-color;
+	border-top-left-radius: $base-border-radius;
+	border-top-right-radius: $base-border-radius;
+	background-color: #F8FAFC;
+}
+
+.c-login__brand {
+	display: block;
+	position: absolute;
+	top: -35px;
+	right: 0;
+	left: 0;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+}
+
+.c-login__icon {
+	display: flex;
+	position: absolute;
+	top: -35px;
+	right: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+	border-radius: 100%;
+	color: $white;
+	font-size: $h4-font-size;
+	@include linear-gradient(to bottom, $gradient-blue);
+}
+
+.c-login__icon--left {
+	right: initial;
+	left: 30px;
+}
+
+.c-login__icon--rounded {
+	width: 45px;
+	height: 45px;
+	top: -25px;
+	border-radius: $base-border-radius;
+}
+
+.c-login__title {
+	margin: 0;
+	font-size: 24px;
+	text-align: center;
+}
+
+.c-login__content {
+	padding: $spacer;
+}
+
+.c-login__social {
+	display: flex;
+	justify-content: space-between;
+}
+
+.c-login__social-icon {
+	flex-basis: 18%;
+	height: 70px;
+	border-radius: $base-border-radius;
+	background-color: $gunmetal-200;
+	color: $white;
+	font-size: 24px;
+	line-height: 70px;
+	text-align: center;
+
+	&:hover {
+		color: $white;
+	}
+
+	@include respond-to($breakpoint-mobile) {
+		flex-basis: 23%;
+	}
+}
+
+.c-login__footer {
+	@include clearfix;
+	position: absolute;
+	bottom: -40px;
+	width: 100%;
+}
+
+.c-login__footer-link {
+	color: $color-mute;
+	font-size: $text-font-size;
+}
+
+
+/* Horizontal Login - Login v2
+   ========================================================================== */
+
+.c-login--horizontal {
+	display: flex;
+	width: 70%;
+	max-width: 800px;
+
+	.c-login__content-wrapper,
+	.c-login__content-image {
+		width: 50%;
+
+		@include respond-to($breakpoint-tablet) {
+			width: 100%;
+		}
+	}
+
+	.c-login__head {
+		padding: $spacer 0 0;
+		padding-left: 1.875rem;
+		border: 0;
+		background-color: transparent;
+	}
+
+	.c-login__title {
+		margin: 0;
+		text-align: left;
+	}
+
+	.c-login__content {
+		padding-top: $spacer-small;
+	}
+
+	.c-login__content-image {
+		display: flex;
+		position: relative;
+		flex-flow: column;
+		justify-content: flex-end;
+		padding: $spacer;
+		border-top-right-radius: $base-border-radius;
+		border-bottom-right-radius: $base-border-radius;
+		background-color: #49515D;
+		color: $white;
+		overflow: hidden;
+
+		img {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: .2;
+		}
+
+		h3,
+		p {
+			color: $white;
+		}
+
+		p {
+			font-size: $h6-font-size;
+			opacity: .9;
+		}
+	}
+
+	@include respond-to($breakpoint-tablet) {
+		flex-direction: column-reverse;
+		width: 95%;
+
+		.c-login__head {
+			margin-top: rem(50px);
+		}
+	}
+}

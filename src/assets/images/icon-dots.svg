@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="4px" viewBox="0 0 18 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>More</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Screens---Source-Sans-Pro" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="11---News-Feed" transform="translate(-1048.000000, -665.000000)" fill="#AEB6C5">
+            <g id="Content" transform="translate(495.000000, 280.000000)">
+                <g id="Post-2" transform="translate(1.000000, 325.000000)">
+                    <g id="Social-Stats" transform="translate(90.000000, 53.000000)">
+                        <path d="M464,11 C462.895431,11 462,10.1045695 462,9 C462,7.8954305 462.895431,7 464,7 C465.104569,7 466,7.8954305 466,9 C466,10.1045695 465.104569,11 464,11 Z M471,11 C469.895431,11 469,10.1045695 469,9 C469,7.8954305 469.895431,7 471,7 C472.104569,7 473,7.8954305 473,9 C473,10.1045695 472.104569,11 471,11 Z M478,11 C476.895431,11 476,10.1045695 476,9 C476,7.8954305 476.895431,7 478,7 C479.104569,7 480,7.8954305 480,9 C480,10.1045695 479.104569,11 478,11 Z" id="More"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

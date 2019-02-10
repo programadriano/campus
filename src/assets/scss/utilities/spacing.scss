@@ -1,0 +1,112 @@
+/* ==========================================================================
+#SPACING UTILITIES
+========================================================================== */
+
+// sass-lint:disable no-important
+
+/**
+* Spacing utilities are used to provide spacing between components using
+* margins or inside the components using paddings. Different sizes allow you
+* to easily construct consistent layouts of components.
+*/
+
+$spacers: (
+	zero:   0,
+	auto: auto,
+	xs: $spacer-xsmall,
+	s:  $spacer-small,
+	m: $spacer,
+	l:  $spacer-large,
+	xl: $spacer-xlarge
+);
+
+/**
+* Margins
+*
+* margin ->all sides
+* marginTop ->margin-top
+* marginRight ->margin-right
+* marginBottom ->margin-bottom
+* marginLeft ->margin-left
+* marginVertical ->margin-top & margin-bottom (vertically)
+* marginHorizontal ->margin-right & margin-left (horizontaly)
+*
+*/
+
+@each $property, $value in $spacers {
+	.u-margin-#{$property} {
+		margin: $value !important;
+	}
+
+	.u-marginTop-#{$property} {
+		margin-top: $value !important;
+	}
+
+	.u-marginRight-#{$property} {
+		margin-right: $value !important;
+	}
+
+	.u-marginBottom-#{$property} {
+		margin-bottom: $value !important;
+	}
+
+	.u-marginLeft-#{$property} {
+		margin-left: $value !important;
+	}
+
+	.u-marginVertical-#{$property} {
+		margin-top: $value !important;
+		margin-bottom: $value !important;
+	}
+
+	.u-marginHorizontal-#{$property} {
+		margin-right: $value !important;
+		margin-left: $value !important;
+	}
+}
+
+
+/**
+* Paddings
+*
+* padding  -> all sides
+* paddingTop ->padding-top
+* paddingRight ->padding-right
+* paddingBottom ->padding-bottom
+* paddingLeft ->padding-left
+* paddingVertical ->padding-top & padding-bottom (vertically)
+* paddingHorizontal ->padding-right & padding-left (horizontaly)
+*
+*/
+
+@each $property, $value in $spacers {
+	.u-padding-#{$property} {
+		padding: $value !important;
+	}
+
+	.u-paddingTop-#{$property} {
+		padding-top: $value !important;
+	}
+
+	.u-paddingRight-#{$property} {
+		padding-right: $value !important;
+	}
+
+	.u-paddingBottom-#{$property} {
+		padding-bottom: $value !important;
+	}
+
+	.u-paddingLeft-#{$property} {
+		padding-left: $value !important;
+	}
+
+	.u-paddingVertical-#{$property} {
+		padding-top: $value !important;
+		padding-bottom: $value !important;
+	}
+
+	.u-paddingHorizontal-#{$property} {
+		padding-right: $value !important;
+		padding-left: $value !important;
+	}
+}

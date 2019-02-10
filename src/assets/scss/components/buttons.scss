@@ -1,0 +1,213 @@
+/* ==========================================================================
+   #BUTTONS
+   ========================================================================== */
+
+/**
+ * 1. Apply (btn--info) background if `c-button--{style}` class isn't specified.
+ * 2. Align icon (if placed inside button) with text properly.
+ * 3. Add dropdown icon/arrow to button with `has-dropdown` class, it depends
+ *    on (FontAwesome) icon font so make sure to modify it if you changed your
+ *    base icon font.
+ * 4. Use `disabled` property on <button> elements, and `is-disabled` class on
+ *    <a> elements as they don't support `disabled` property.
+ */
+
+.c-button {
+	display: inline-block;
+	position: relative;
+	max-width: 100%;
+	margin: 0;
+	padding: $btn-padding;
+	transition: all 0.15s ease-in-out;
+	border: $btn-border-width solid;
+	border-radius: $btn-border-radius;
+	border-color: $btn-border-color; /* [1] */
+	color: $btn-color; /* [1] */
+	font-size: $btn-font-size;
+	font-weight: $btn-font-weight;
+	line-height: $btn-line-height;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	cursor: pointer;
+	overflow: hidden;
+	vertical-align: middle;
+	appearance: none;
+	user-select: none;
+	@include linear-gradient(to bottom, $blue-300, $blue-400); /* [1] */
+
+	&:hover,
+	&:focus {
+		outline: 0;
+		color: $btn-hover-color;
+		text-decoration: none;
+	}
+
+	i {
+		position: relative;
+		bottom: -1px; /* [2] */
+		font-size: 16px;
+		margin-right: 5px;
+	}
+
+	&.has-dropdown {
+		position: relative;
+		padding-right: 2.5rem;
+
+		&::after { /* [3] */
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			height: 100%;
+			margin-left: 1.25rem;
+			padding: 0.5rem 8px;
+			border-left: 1px solid;
+			border-color: inherit;
+			color: inherit;
+			font-family: $base-icon-font;
+			content: "\f107"; // fa-angle-down
+		}
+	}
+
+	&.is-disabled,
+	&:disabled { /* [4] */
+		border-color: $btn-disabled-border-color;
+		background: $btn-disabled-background-color;
+		color: $btn-disabled-color;
+
+		&:hover,
+		&:focus {
+			border-color: $btn-disabled-border-color;
+			background: $btn-disabled-background-color;
+			color: $btn-disabled-color;
+			cursor: not-allowed;
+		}
+	}
+}
+
+.c-button--fullwidth {
+	width: 100%;
+}
+
+/**
+ * 1. Reduce spacing between the icon and text in small buttons.
+ */
+
+.c-button--small {
+	padding: $btn-small-padding;
+	font-size: $btn-small-font-size;
+
+	i {
+		margin-right: 5px; /* [1] */
+	}
+}
+
+.c-button--large {
+	padding: $btn-large-padding;
+	font-size: $btn-large-font-size;
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+/**
+ * Buttons have a simple, nice gradient on the background, we use
+ * sass's `darken()` method to generate a dark shade of the requested color,
+ * then we use our `linear-gradient` mixin to generate the background gradient.
+ */
+
+.c-button--primary {
+	@include linear-gradient(to bottom, $gunmetal-100, $gunmetal-400);
+	border-color: $gunmetal-200;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($gunmetal-100, 4%), darken($gunmetal-500, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($gunmetal-100, 6%), darken($gunmetal-500, 6%));
+	}
+}
+
+.c-button--secondary {
+	@include linear-gradient(to bottom, $white, $grey-200);
+	border-color: $grey-400;
+	color: $gunmetal-200;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($white, 1%), darken($grey-200, 2%));
+		color: $gunmetal-200;
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($white, 2%), darken($grey-200, 3%));
+		color: $gunmetal-200;
+	}
+}
+
+.c-button--info {
+	@include linear-gradient(to bottom, $blue-300, $blue-400);
+	border-color: $blue-500;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($blue-300, 4%), darken($blue-400, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($blue-300, 6%), darken($blue-400, 6%));
+	}
+}
+
+.c-button--success {
+	@include linear-gradient(to bottom, $green-300, $green-400);
+	border-color: $green-500;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($green-300, 4%), darken($green-400, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($green-300, 6%), darken($green-400, 6%));
+	}
+}
+
+.c-button--fancy {
+	@include linear-gradient(to bottom, $purple-300, $purple-500);
+	border-color: $purple-500;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($purple-300, 4%), darken($purple-500, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($purple-300, 6%), darken($purple-500, 6%));
+	}
+}
+
+.c-button--warning {
+	@include linear-gradient(to bottom, $orange-300, $orange-500);
+	border-color: $orange-500;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($orange-300, 4%), darken($orange-500, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($orange-300, 6%), darken($orange-500, 6%));
+	}
+}
+
+.c-button--danger {
+	@include linear-gradient(to bottom, $red-100, $red-300);
+	border-color: $red-300;
+
+	&:hover {
+		@include linear-gradient(to bottom, darken($red-100, 4%), darken($red-300, 4%));
+	}
+
+	&:focus {
+		@include linear-gradient(to bottom, darken($red-100, 6%), darken($red-300, 6%));
+	}
+}

@@ -1,0 +1,26 @@
+/* ==========================================================================
+   #FOOTER
+   ========================================================================== */
+
+.c-footer {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin-top: 50px;
+	padding: 30px 20px;
+	border-top: 1px solid #e1e2e8;
+
+	&__divider{
+		margin: 0 15px;
+		color: #99a5bd
+	}
+
+	&__link {
+		margin-right: 15px;
+		color: #768093;
+		font-size: .875rem
+	}
+}

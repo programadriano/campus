@@ -1,0 +1,134 @@
+/* ==========================================================================
+   #ERROR
+   ========================================================================== */
+
+/**
+ * This component is used for 404 (page not found) page.
+ */
+
+.c-error-wrapper {
+	position: relative;
+}
+
+.c-error {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 450px;
+	margin: auto;
+	transform: translate(-50%, -50%);
+	border: $base-border-width solid $base-border-color;
+	border-radius: $base-border-radius;
+	background-color: $base-background-color;
+	text-align: center;
+
+	@include respond-to ($breakpoint-tablet) {
+		width: 95%;
+	}
+}
+
+.c-error__head {
+	position: relative;
+	padding: rem(50px) 0 $spacer;
+	border-bottom: $base-border-width solid $base-border-color;
+	border-top-left-radius: $base-border-radius;
+	border-top-right-radius: $base-border-radius;
+	background-color: #F8FAFC;
+}
+
+.c-error__icon {
+	display: flex;
+	position: absolute;
+	top: -35px;
+	right: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	width: 70px;
+	height: 70px;
+	margin: 0 auto;
+	border-radius: 100%;
+	color: $white;
+	font-size: $h4-font-size;
+	@include linear-gradient(to bottom, $gradient-blue);
+}
+
+
+/**
+ * 1. Readjust line height for proper spacing between the `title` and `<em>`.
+ */
+
+.c-error__title {
+	margin-bottom: 0;
+	//font-size: $h1-font-size * 1.5;
+	font-weight: $font-weight-bold;
+	line-height: 48px; /* [1] */
+
+	em {
+		display: block;
+		font-size: $h4-font-size;
+		font-style: normal;
+		font-weight: $font-weight-normal;
+	}
+}
+
+.c-error__body {
+	padding: $spacer;
+}
+
+.c-error__description {
+	margin-bottom: $spacer;
+	padding: 0 $spacer-large;
+	font-size: $h5-font-size;
+
+	@include respond-to($breakpoint-mobile) {
+		padding: 0 $spacer-xsmall;
+	}
+}
+
+/**
+ * Search Form
+ */
+
+.c-error__search-form {
+	display: flex;
+
+	.c-field {
+		width: 75%;
+	}
+
+	.c-btn {
+		width: 25%;
+		margin-left: $spacer-xsmall;
+	}
+
+	@include respond-to (450px){
+		flex-flow: column;
+
+		.c-field,
+		.c-btn {
+			width: 100%;
+		}
+
+		.c-btn {
+			margin: $spacer-xsmall 0 0;
+		}
+	}
+}
+
+
+.c-error__footer {
+	@include clearfix;
+	position: absolute;
+	bottom: -40px;
+	width: 100%;
+}
+
+.c-error__footer-link {
+	color: $color-mute;
+	font-size: $text-font-size;
+
+	i {
+		margin-right: $spacer-xsmall;
+	}
+}

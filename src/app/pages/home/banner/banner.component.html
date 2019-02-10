@@ -1,0 +1,52 @@
+<div *ngIf="spin" class="u-flex u-justify-center"><img src="https://noticias.band.uol.com.br/core/websites/global/assets/images/ajax-loader.gif"
+    alt=""></div>
+<div class="row u-padding-m" *ngIf="!spin">
+  <div class="col-lg-12 col-md-12 col-sm-7 col-xs-12">
+    <div class="c-card ">
+      <div class="c-card__header">
+        <h3 class="c-card__title u-text-small"><i class="fa fa-picture-o u-marginRight-xs" aria-hidden="true"></i>Selecione
+          uma imagem para o banner</h3>
+      </div>
+      <div class="u-padding-s u-text-center">
+        <figure class="u-marginBottom-xs">
+          <img src="{{ banner.get('url_image_banner').value }}" alt="" />
+        </figure>
+        <button for="file-upload" (click)="imgInput.click()" class="custom-file-upload c-button c-button--success">
+          <i class="fa fa-image"></i> Selecionar imagem em seu computador
+        </button>
+        <p class="u-color-warning u-text-bold u-marginTop-xs"><i class="fa fa-info-circle" aria-hidden="true"></i>
+          [dimensões da imagem: 1900px de largura por 425px de altura]</p>
+        <input #imgInput class="file-input" type="file" (change)="fileChange($event)" name="resume" style="display: none" />
+      </div>
+    </div>
+  </div>
+</div>
+<form [formGroup]="banner" class="row u-padding-m">
+  <div class="col-lg-5">
+    <app-input-validate [errorMessage]='"Este campo é obrigatório"' [label]='"Nome do programa"'>
+      <input class="c-input" formControlName="editoria" id="editoria" name="editoria" placeholder="Nome do programa ou projeto"
+        type="text" />
+    </app-input-validate>
+  </div>
+  <div class="col-lg-7">
+    <app-input-validate [errorMessage]='"Este campo é obrigatório"' [label]='"Título"'>
+      <input class="c-input" id="titulo" formControlName="title" name="title" placeholder="Título" type="text" />
+    </app-input-validate>
+  </div>
+  <div class="col-lg-5">
+    <app-input-validate [errorMessage]='"Este campo é obrigatório"' [label]='"Link do banner"'>
+      <input class="c-input" id="imagem" formControlName="link_banner" name="link_banner" placeholder="https://comercial.band.com.br"
+        type="text" />
+    </app-input-validate>
+  </div>
+  <div class="col-lg-7">
+    <app-input-validate [errorMessage]='"Este campo é obrigatório"' [label]='"Link do banner"'>
+      <input class="c-input" id="descricao" formControlName="description" name="description" placeholder="Descrição"
+        type="text" />
+    </app-input-validate>
+  </div>
+</form>
+<footer class="c-card__footer u-flex">
+  <button *ngIf="homeD?._id" (click)='delete()' class="c-button c-button--danger ">Deletar banner</button>
+  <button #btn (click)='onSubmit()' [disabled]="banner.invalid || spin" class="c-button c-button--success "></button>
+</footer>

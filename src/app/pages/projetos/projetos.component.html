@@ -1,0 +1,356 @@
+<app-header></app-header>
+<div class="c-toolbar u-marginBottom-m">
+	<h3 class="c-toolbar__title has-divider">Projetos Especial</h3>
+	<h5 class="c-toolbar__meta u-marginRight-auto">{{ total }} itens</h5>
+
+	<button (click)="addNewPlain()" class="c-button c-button--success">
+		novo projeto especial
+	</button>
+</div>
+
+<!-- container -->
+<div class="container-fluid">
+	<div class="row">
+		<!-- left -->
+		<div class="col-sm-8">
+			<div class="c-card c-card--shadow">
+				<div class="c-card__header c-card__header--transparent o-line">
+					<h2 class="c-card__title">
+						Preencha todos os campos para adicionar um novo projeto especial
+					</h2>
+				</div>
+
+				<!-- content -->
+				<div class="row u-padding-m">
+					<div class="col-3">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">Título</label>
+							<input class="c-input" id="input1" [class.c-input--danger]="validaTitle" type="text" placeholder="Nome do projeto" value="{{ specialP.title }}" #title
+							 name="title" />
+							<p *ngIf="validaTitle" class="u-color-danger u-marginTop-s u-text-uppercase">Este campo é obrigatório</p>
+						</div>
+					</div>
+
+					<div class="col-5">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">URL do vídeo</label>
+							<input value="{{ specialP.url_movie }}" class="c-input" id="input1" type="text" placeholder="Colar link do vídeo destacado"
+							 #url_movie name="url_movie" />
+							<p *ngIf="validaUrlVideo" class="u-color-danger u-marginTop-s u-text-uppercase">Este campo é obrigatório</p>
+						</div>
+					</div>
+
+					<div class="col-2">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="input1">Data do projeto</label>
+							<input class="c-input" value="{{ specialP.projectDate | date: 'M/d/yyyy' }}" id="input1" type="text" placeholder=""
+							 #projectDate name="projectDate" />
+						</div>
+					</div>
+
+					<div class="col-2">
+						<div class="c-field u-marginBottom-m">
+							<label class="c-field__label" for="select1">Categoria</label>
+							<!-- Select2 jquery plugin is used -->
+							<select id="select1" #editoriaSelect name="editoriaSelect">
+								<option value="1" [selected]="specialP?.editoria == 1">Entretenimento</option>
+								<option value="2" [selected]="specialP?.editoria == 2">Noticia</option>
+								<option value="3" [selected]="specialP?.editoria == 3">Esportes</option>
+								<option value="4" [selected]="specialP?.editoria == 4">Reality</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="col-12">
+						<div class="c-field u-marginBottom-s">
+							<label class="c-field__label" for="Descricao">Descrição</label>
+							<textarea value="{{ specialP.description }}" class="c-input" id="Descricao" placeholder="Breve descritivo sobre o projeto"
+							 #description name="description"></textarea>
+						</div>
+					</div>
+
+					<!-- documents -->
+					<div class="col-12">
+						<div class="u-paddingTop-m u-paddingBottom-m u-marginTop-m u-border-top u-text-center">
+							<p class="u-text-mute u-h6">
+								<i class="fa fa-globe u-marginRight-xs"></i> Selecione abaixo, os arquivos para este projeto especial
+							</p>
+						</div>
+
+						<div class="row">
+							<div class="col-lg-3">
+								<!-- card -->
+								<div class="c-card u-padding-s">
+									<div class="o-line u-marginBottom-m">
+										<h3 class="c-card__title u-text-small"> Plano para o site
+											<span class="u-block u-text-mute u-text-xsmall">Selecione o arquivo no formato .pdf</span>
+										</h3>
+									</div>
+
+									<button for="file-upload" #focusPdf  [class.c-input--danger]="validaPlano" (click)="pdfInput.click()" class="custom-file-upload c-button c-button--secondary c-button--fullwidth">
+										<i class="fa fa-file-pdf"></i> PDF
+									</button>
+									<input class="file-input" type="file" [class.c-input--danger]="validaPlano" (change)="fileChangePDF($event)" name="resume" style="display: none"
+									 #pdfInput accept=".pdf,.doc,.docx" />
+									<p class="c-card__return" *ngIf="specialP?.url_file_comercialPlain !=  undefined"><a href="{{specialP?.url_file_comercialPlain}}"
+										 target="_blank">Download</a></p>
+									<p *ngIf="validaPlano" class="u-color-danger u-text-center u-marginTop-s u-text-uppercase">Este campo é
+										obrigatório</p>
+								</div><!-- ./end card -->
+							</div>
+
+							<div class="col-lg-3">
+								<!-- card -->
+								<div class="c-card u-padding-s">
+									<div class="o-line u-marginBottom-m">
+										<h3 class="c-card__title u-text-small">Planilha do Excel
+											<span class="u-block u-text-mute u-text-xsmall">Selecione o arquivo no formato .xls</span>
+										</h3>
+									</div>
+
+									<button for="file-upload" (click)="excelInput.click()" class="custom-file-upload c-button c-button--secondary c-button--fullwidth">
+										<i class="fa fa-table"></i> Selecionar Excel
+									</button>
+									<input class="file-input" type="file" (change)="fileChangeFileExcel($event)" name="resume" style="display: none"
+									 #excelInput accept=".xls,.excel" />
+									<p class="c-card__return u-text-center" *ngIf="specialP?.url_file_excel !=  undefined"><a href="{{specialP?.url_file_excel}}"
+										 target="_blank">Download</a></p>
+									<p *ngIf="validaExcel" class="u-color-danger u-text-center u-marginTop-s u-text-uppercase">Este campo é
+										obrigatório</p>
+								</div>
+							</div>
+
+							<div class="col-lg-3">
+								<!-- card -->
+								<div class="c-card u-padding-s">
+									<div class="o-line u-marginBottom-m">
+										<h3 class="c-card__title u-text-small">Planilha do Excel para Rede
+											<span class="u-block u-text-mute u-text-xsmall">Selecione o arquivo no formato .xls</span>
+										</h3>
+									</div>
+
+									<button for="file-upload" (click)="excelRedeInput.click()" class="custom-file-upload c-button c-button--secondary c-button--fullwidth">
+										<i class="fa fa-table"></i> Selecionar Excel
+									</button>
+									<input class="file-input" type="file" (change)="fileChangeFileExcelRede($event)" name="resume" style="display: none"
+									 #excelRedeInput accept=".xls,.excel" />
+									<p class="c-card__return" *ngIf="specialP?.url_file_excel_rede !=  undefined"><a href="{{specialP?.url_file_excel_rede}}"
+										 target="_blank">Download</a></p>
+									<p *ngIf="validaExcelRede" class="u-color-danger u-text-center u-marginTop-s u-text-uppercase">Este campo é
+										obrigatório</p>
+								</div><!-- ./end card -->
+							</div>
+
+							<div class="col-lg-3">
+								<!-- card -->
+								<div class="c-card u-padding-s">
+									<div class="o-line u-marginBottom-m">
+										<h3 class="c-card__title u-text-small">Plano em PPT
+											<span class="u-block u-text-mute u-text-xsmall">Selecione o arquivo no formato .ppt</span>
+										</h3>
+									</div>
+
+									<button for="file-upload" (click)="pptInput.click()" class="custom-file-upload c-button c-button--secondary c-button--fullwidth">
+										<i class="fa fa-file-powerpoint"></i> Selecionar Power Point
+									</button>
+									<input class="file-input" type="file" (change)="fileChangeUrlFilePpt($event)" name="resume" style="display: none"
+									 #pptInput accept=".pdf,.doc,.docx,.ppt" />
+									<p class="c-card__return" *ngIf="specialP?.url_file_ppt !=  undefined"><a href="{{specialP?.url_file_ppt}}"
+										 target="_blank">Download</a></p>
+									<p *ngIf="validaPPT" class="u-color-danger u-text-center u-marginTop-s u-text-uppercase">Este campo é
+										obrigatório</p>
+								</div><!-- ./end card -->
+							</div>
+
+						</div>
+					</div><!-- ./ end documents -->
+
+					<div class="col-lg-12">
+						<span class="c-chat__divider u-marginVertical-m">Merchan</span>
+					</div>
+
+					<div class="col-8">
+						<!-- card -->
+						<div class="c-card">
+							<div class="c-card__header">
+								<h3 class="c-card__title u-text-small">Inserir Formato de Merchan</h3>
+							</div>
+
+							<div class="u-padding-s">
+								<input type="hidden" value="{{merchanAdd._id}}" id="idMerchan" #idMerchan>
+								<div class="c-field u-marginBottom-s">
+									<label class="c-field__label" for="merchan1">Título</label>
+									<input class="c-input" #merchantitle id="merchan1" type="text" value="{{merchanAdd.title_merchan}}"
+									 placeholder="Nome da ação" />
+								</div>
+
+								<div class="c-field u-marginBottom-s">
+									<label class="c-field__label" for="urlmerchan1">URL do vídeo</label>
+									<input class="c-input" #urlmerchan id="urlmerchan1" value="{{merchanAdd.url_video_merchan}}" type="text"
+									 placeholder="Colar link do vídeo da ação" />
+								</div>
+
+								<div class="c-field u-flex u-justify-end u-marginBottom-s">
+									<a class="c-button c-button--info" (click)="addMerchan(merchantitle.value, urlmerchan.value)">Adicionar
+										formato</a>
+								</div>
+
+								
+								<table class="c-table">
+									<thead class="c-table__head c-table__head--slim">
+										<tr class="c-table__row">
+											<th class="c-table__cell c-table__cell--head">
+												Lista de formatos cadastrados
+											</th>
+											<th class="c-table__cell c-table__cell--head u-text-right">
+												<span class="u-hidden-visually">Ações</span>
+											</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<tr class="c-table__row" *ngFor="let merchan of merchanProject">
+											<td class="c-table__cell">
+												<div class="o-media">
+													<div class="o-media__body">
+														{{ merchan.title_merchan }}
+													</div>
+												</div>
+											</td>
+											<td class="c-table__cell u-text-right">
+												<a (click)="onEditItem(merchan._id, merchan.title_merchan, merchan.url_video_merchan)" class="u-marginRight-xs c-tooltip c-tooltip--top"
+												 aria-label="Editar este item">
+													<span class="c-badge c-badge--small c-badge--secondary">Editar</span>
+												</a>
+
+												<a (click)="onDeleteItem(merchan._id, merchan.title_merchan)" class="c-tooltip c-tooltip--top" aria-label="Excluir permanentemente">
+													<span class="c-badge c-badge--small c-badge--danger">Excluir</span>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+
+							</div>
+						</div>
+						<!-- ./end card -->
+					</div>
+
+					<div class="col-4">
+						<!-- card -->
+						<div class="c-card">
+							<div class="c-card__header">
+								<h3 class="c-card__title u-text-small">Inserir imagem destaque</h3>
+							</div>
+							<div class="u-padding-s u-text-center">
+								<button for="file-upload" #imgDestaque  [class.c-input--danger]="validaImgDestaque" (click)="imgInput.click()" class="custom-file-upload c-button c-button--secondary c-button--fullwidth">
+									<i class="fa fa-image"></i> Selecionar imagem
+								</button>
+								<p class="u-color-warning u-text-bold u-marginTop-xs">
+									<i aria-hidden="true" class="fa fa-info-circle"></i> [dimensões da imagem: 635px de largura por 350px de
+									altura]
+								</p>
+								<input  class="file-input" type="file" (change)="fileChange($event)" name="resume" style="display: none"
+								 #imgInput />
+
+								<figure>
+									<img src="{{ specialP.url_image_destaque }}" alt="" />
+								</figure>
+								<p *ngIf="validaImgDestaque" class="u-color-danger u-text-center u-text-uppercase">Este campo é obrigatório</p>
+							</div>
+						</div><!-- ./end card -->
+					</div>
+
+				</div><!-- ./end content -->
+
+				<!-- footer -->
+				<footer class="c-card__footer u-flex u-justify-end">
+					<button #btnSend class="c-button c-button--success" (click)="
+					sendSpecialProjects(
+					editoriaSelect.value,
+					title.value,
+					url_movie.value,
+					projectDate.value,
+					description.value
+					)
+					">
+						Publicar novo projeto especial
+					</button>
+				</footer><!-- ./end footer -->
+			</div>
+		</div>
+
+		<!-- right -->
+		<div class="col-sm-4">
+
+			<div class="c-messages">
+				<cdk-virtual-scroll-viewport itemSize="50" class="c-messages">
+					<header class="u-padding-s u-bg-secondary u-border-top">
+						<h2 class="u-h4 u-text-normal u-marginBottom-s u-flex u-align-items-center">
+							<i class="u-opacity-heavy fa fa-paper-plane-o u-marginRight-xs"></i> Projetos especiais ativos
+							<span class="u-marginLeft-xs u-text-tiny u-marginRight-auto">
+								<i class="fa fa-circle u-color-success"></i>
+							</span>
+						</h2>
+						<div class="c-field has-icon-right">
+							<input class="c-input" type="text" placeholder="Buscar planos projetos" (input)="onSearchChange($event.target.value)" />
+							<span class="c-field__icon"> <i class="fa fa-search"></i> </span>
+						</div>
+					</header>
+
+					<div class="c-table-responsive@desktop">
+							<!-- <div class="u-flex u-justify-center u-align-items-center"><img src="https://noticias.band.uol.com.br/core/websites/global/assets/images/ajax-loader.gif"></div> -->
+						<table class="c-table c-table--highlight u-mmarginBottom-s">
+							<thead class="c-table__head c-table__head--slim">
+								<tr class="c-table__row">
+									<th class="c-table__cell c-table__cell--head">
+										Projetos e categorias
+									</th>
+									<th class="c-table__cell c-table__cell--head u-text-right">
+										<span class="u-hidden-visually">Ações</span>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr class="c-table__row" *cdkVirtualFor="let specialProjects of specialProjects">
+									<td class="c-table__cell">
+										<div class="o-media">
+											<div class="o-media__img u-marginRight-xs">
+												<div class="c-avatar c-avatar--xs">
+													<img class="u-border-rounded" style="width: 66px;height: 46px;" src="{{ specialProjects.url_image_destaque }}"
+													 alt="" />
+												</div>
+											</div>
+											<div class="o-media__body">
+												{{ specialProjects.title }}
+												<small class="u-block u-text-mute">{{
+													getEditoria(specialProjects.editoria)
+													}}</small>
+											</div>
+										</div>
+									</td>
+									<td class="c-table__cell u-text-right">
+										<a (click)="
+													getSpecialProjectById(
+													specialProjects._id,
+													specialProjects.title
+													)
+													"
+										 class="c-tooltip c-tooltip--top" aria-label="Visualizar projeto">
+											<i class="fa fa-pencil u-color-info u-text-large u-marginRight-xs" aria-hidden="true"></i>
+										</a>
+										<a (click)="delete(specialProjects._id, specialProjects.title)" class="c-tooltip c-tooltip--top" aria-label="Deletar">
+											<i class="fa fa-trash-o u-color-danger u-text-large u-marginRight-xs" aria-hidden="true"></i>
+										</a>
+									</td>
+								</tr>								
+							</tbody>
+						</table>
+
+					</div>
+				</cdk-virtual-scroll-viewport>
+			</div>
+		</div><!-- ./end rigth -->
+	</div>
+</div><!-- ./end container -->
+<app-footer></app-footer>

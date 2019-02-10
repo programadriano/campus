@@ -1,0 +1,83 @@
+/* ==========================================================================
+   #POPOVERS
+   ========================================================================== */
+
+.c-popover {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	max-width: $popover-max-width;
+	padding: $popover-padding;
+	border-radius: $base-border-radius;
+	background-clip: padding-box;
+	background-color: $popover-background-color;
+	color: $popover-color;
+	text-align: center;
+	word-wrap: break-word;
+
+	// Hide Bootstrap's default arrow
+	.arrow {
+		display: none;
+	}
+
+	// popover arrow
+	&::before {
+		position: absolute;
+		border: 6px solid transparent;
+		content: " ";
+	}
+
+	/**
+	 * 1. (bs-popover-*) classes are inserted by bootstrap's popover plugin, we 
+	 *    customize these classes for better compatibility with Dashboard UI Kit.
+	 */
+	&.bs-popover-top { /* [1] */
+		margin-bottom: $spacer-small;
+
+		// popover arrow
+		&::before {
+			top: 100%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			border-top-color: $tooltip-background-color;
+		}
+	}
+
+	&.bs-popover-bottom { /* [1] */
+		margin-top: $spacer-small;
+
+		// popover arrow
+		&::before {
+			bottom: 100%;
+			left: 50%;
+			transform: translate(-50%, 0);
+			border-bottom-color: $tooltip-background-color;
+		}
+	}
+
+	&.bs-popover-right { /* [1] */
+		margin-left: $spacer-small;
+
+		// popover arrow
+		&::before {
+			top: 50%;
+			right: 100%;
+			transform: translate(0, -50%);
+			border-right-color: $tooltip-background-color;
+		}
+	}
+
+	&.bs-popover-left { /* [1] */
+		margin-right: $spacer-small;
+
+		// popover arrow
+		&::before {
+			top: 50%;
+			left: 100%;
+			transform: translate(0, -50%);
+			border-left-color: $tooltip-background-color;
+		}
+	}
+}
+

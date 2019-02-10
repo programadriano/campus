@@ -1,0 +1,87 @@
+/* ==========================================================================
+   #MODAL 
+   ========================================================================== */
+
+.c-modal {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: all 0.3s;
+	z-index: $z-index-500;
+
+	// Prevent Chrome on Windows from adding a focus outline. For details, see
+	// https://github.com/twbs/bootstrap/pull/10951.
+	outline: 0;
+
+	.modal-open & {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+}
+
+.modal-open {
+	overflow: hidden;
+}
+
+
+/**
+ * 1. Allow scrolling when content's height is larger than viewport's height.
+ */
+
+.c-modal__dialog {
+	position: relative;
+	margin: 30px auto;
+
+	// When fading in the modal, animate it to slide down
+	.modal.fade & {
+		transform: translate(0, -25%);
+		transition: all .3s;
+	}
+
+	.modal.show & {
+		transform: translate(0, 0);
+	}
+}
+
+.modal-body {
+	position: relative;
+}
+
+
+/** 
+ * Add a dark background to make modal dialog standout.
+ */
+
+// Modal background
+.modal-backdrop {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: $gunmetal-500;
+	z-index: $z-index-400;
+
+	// Fade for backdrop
+	&.fade {
+		opacity: 0;
+	}
+
+	&.show {
+		opacity: 0.9;
+	}
+}
+
+
+// Measure scrollbar width for padding body during modal show/hide
+.modal-scrollbar-measure {
+	position: absolute;
+	top: -9999px;
+	width: 50px;
+	height: 50px;
+	overflow: scroll;
+}
+

@@ -1,0 +1,36 @@
+///* ========================================================================
+//   #BUTTONS
+//   ======================================================================== */
+
+$btn-padding: rem(8px) rem(20px) !default;
+$btn-border-width: $base-border-width !default;
+$btn-border-color: $blue-500 !default;
+$btn-border-radius: $base-border-radius !default;
+$btn-color: $white !default;
+$btn-font-size: rem(14px) !default;
+$btn-font-weight: $font-weight-normal !default;
+$btn-line-height: $base-line-height / $base-font-size !default;
+$btn-hover-color: $white !default;
+
+$btn-small-font-size: $text-small-font-size !default;
+$btn-small-padding: rem(4px) rem(18px) !default;
+
+$btn-large-font-size: $text-large-font-size !default;
+$btn-large-padding: rem(8px) rem(30px) !default;
+
+//
+// Color Variants
+//
+
+
+//
+// Disabled State
+//
+
+$btn-disabled-color: rgba($gunmetal-200, .5) !default;
+$btn-disabled-background-color: $grey-100 !default;
+$btn-disabled-border-color: $grey-300 !default;
+
+
+
+

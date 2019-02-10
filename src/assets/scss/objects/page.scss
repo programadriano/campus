@@ -1,0 +1,93 @@
+/* ==========================================================================
+   #PAGE OBJECT
+   ========================================================================== */
+
+/**
+ * Use `o-page` to strucutre your page layout into sidebar, main content.
+ */
+
+.o-page {
+  position: relative;
+  height: 100%;
+}
+
+
+/**
+ * 1. Control the width of sidebar.
+ * 2. Sidebar always on the top.
+ */
+
+.o-page__sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 250px;
+  /* [1] */
+  transition: transform .2s;
+  z-index: $z-index-300;
+  /* [2] */
+
+  /**
+	 * Hide sidebar once viewport is lower than $breakpoint-desktop (992px)
+	 *
+	 * 1. Increase the width of sidebar on small screens.
+	 */
+  @include respond-to($breakpoint-desktop) {
+    width: 300px;
+    /* [1] */
+    transform: translateX(-300px);
+  }
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+}
+
+
+/**
+ * Page content is pushed to the right to provide space for the sidebar.
+ *
+ * 1. Must equal the width of the `o-sidebar`.
+ */
+
+.o-page__content {
+	margin-left: 250px;
+	/* [1] */
+	overflow: hidden;
+
+	@include respond-to($breakpoint-desktop) {
+	margin-left: 0;
+	}
+
+	&.is-pushed {
+	margin-left: 250px;
+	}
+}
+
+
+.o-page__card {
+	width: 450px;
+	margin: 0 auto 50px
+}
+
+@media (max-width:576px) {
+	.o-page__card {
+		width: 90%
+	}
+}
+
+.o-page--center {
+	padding-top: 100px
+}
+
+@media (max-width:576px) {
+	.o-page--center {
+		padding-top: 50px
+	}
+}
+
+.o-line {
+	display: flex;
+	align-items: center;
+	justify-content: space-between
+}

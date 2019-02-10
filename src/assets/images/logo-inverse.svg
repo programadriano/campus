@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="44px" height="44px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Logo</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Screens---Source-Sans-Pro" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="14---Projects" transform="translate(-30.000000, -13.000000)">
+            <g id="Top-Bar">
+                <g id="Logo" transform="translate(30.000000, 13.000000)">
+                    <rect id="Base" fill="#1166A5" x="0" y="0" width="44" height="44" rx="4"></rect>
+                    <path d="M13,13 L16.7860144,27.9849619 L24.1389984,25.6477167 L17.5768809,17.6721846 L26.0443029,25.0758948 L32.9200001,22.9315627 L13,13 Z M21.9500888,27.5391867 L24.3703403,30.9462922 L24.3703403,26.8236408 L21.9500888,27.5391867 Z" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

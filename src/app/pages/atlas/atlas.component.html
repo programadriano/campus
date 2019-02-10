@@ -1,0 +1,38 @@
+<app-header></app-header>
+<div class="c-toolbar u-mb-medium">
+  <h3 class="c-toolbar__title has-divider">Atlas de Cobertura</h3>
+  <h5 class="c-toolbar__meta u-marginRight-auto"></h5>
+</div>
+
+<!-- container -->
+<div class="container">
+  <h1 class="u-h4 u-text-center u-marginTop-l">
+    Atualize as informações de cobertura da Band
+  </h1>
+  <form action="" [formGroup]="atlasForm">
+    <div class="u-flex u-justify-center u-marginTop-m">
+      <div class="col-sm-12 col-lg-5">
+        <div class="c-card">
+          <div class="u-padding-m" style="text-align: center">
+            <button for="file-upload" (click)="excelInput.click()" class="custom-file-upload c-button c-button--info c-button--width">
+              Selecione o Arquivo Excel
+            </button>
+            <input class="file-input" type="file" (change)="onFileSelected($event)" name="resume" style="display: none"
+              #excelInput accept=".xlsx,.excel"/>
+            <br />
+            <small class="c-field__message">
+              <i class="fa fa-info-circle"></i>Tamanho máximo de 1GB
+              <p *ngIf="progressBarShow"> <progress class="progressBar" max="100" value="{{progressBar}}"></progress></p>
+            </small>
+          </div>
+          <div *ngIf="buttonUploadShow" class="u-padding-m" style="text-align: center">
+            <button class="custom-file-upload c-button c-button--success c-button--width" (click)="onValidate()" #btnUp>
+              <i class="fa fa-cloud-upload"></i>Fazer o Upload
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

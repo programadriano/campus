@@ -1,0 +1,26 @@
+///* ========================================================================
+//   #SWITCHES
+//   ======================================================================== */
+
+
+$switch-width: 48px;
+$switch-height: 24px;
+$switch-border-radius: 83px;
+
+$switch-background-color: $grey-400;
+$switch-active-background-color: $green-400;
+
+
+//
+// Switch toggle
+//
+// toggle is the small circle the moves in the switch bar
+$switch-toggle-background-color: $white;
+$switch-toggle-width: 20px;
+$switch-toggle-height: 20px;
+
+//
+// Switch label
+//
+$switch-label-margin: 0 0 0 55px;
+$switch-label-font-size: $text-font-size;

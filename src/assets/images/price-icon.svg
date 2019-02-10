@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#A5C66A" offset="0%"></stop>
+            <stop stop-color="#4EA02E" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Source-Sans---White-Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="P3---Pricing" transform="translate(-425.000000, -346.000000)">
+            <g id="Plans" transform="translate(395.000000, 346.000000)">
+                <g id="Plan-1">
+                    <g id="Icon" transform="translate(30.000000, 0.000000)">
+                        <rect id="Base" fill="url(#linearGradient-1)" x="0" y="0" width="40" height="40" rx="8"></rect>
+                        <path d="M20,11 C15.03,11 11,15.03 11,20 C11,24.97 15.03,29 20,29 C20.83,29 21.5,28.33 21.5,27.5 C21.5,27.11 21.35,26.76 21.11,26.49 C20.88,26.23 20.73,25.88 20.73,25.5 C20.73,24.67 21.4,24 22.23,24 L24,24 C26.76,24 29,21.76 29,19 C29,14.58 24.97,11 20,11 L20,11 Z M14.5,20 C13.67,20 13,19.33 13,18.5 C13,17.67 13.67,17 14.5,17 C15.33,17 16,17.67 16,18.5 C16,19.33 15.33,20 14.5,20 L14.5,20 Z M17.5,16 C16.67,16 16,15.33 16,14.5 C16,13.67 16.67,13 17.5,13 C18.33,13 19,13.67 19,14.5 C19,15.33 18.33,16 17.5,16 L17.5,16 Z M22.5,16 C21.67,16 21,15.33 21,14.5 C21,13.67 21.67,13 22.5,13 C23.33,13 24,13.67 24,14.5 C24,15.33 23.33,16 22.5,16 L22.5,16 Z M25.5,20 C24.67,20 24,19.33 24,18.5 C24,17.67 24.67,17 25.5,17 C26.33,17 27,17.67 27,18.5 C27,19.33 26.33,20 25.5,20 L25.5,20 Z" fill="#FFFFFF"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

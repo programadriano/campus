@@ -1,0 +1,99 @@
+/* ==========================================================================
+   #PROGRESS
+   ========================================================================== */
+
+.c-progress {
+	display: block;
+	width: 100%;
+	height: $progress-height;
+	margin: $progress-margin;
+	border-radius: $progress-border-radius;
+	background-color: $progress-background-color;
+}
+
+/**
+  * 1. Default (dark) background-color would be applied, if class 
+  *    `c-progress--[color]` isn't specified.
+  */
+
+.c-progress__bar {
+	position: relative;
+	height: 100%;
+	border-radius: $progress-border-radius;
+	background-color: $progress-bar-primary-background-color; /* [1] */
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	@include linear-gradient(to bottom, $blue-300, $blue-400);
+}
+
+
+/* Size variants
+   ========================================================================== */
+
+.c-progress--xsmall {
+	height: $progress-xsmall-height;
+}
+
+.c-progress--small {
+	height: $progress-small-height;
+}
+
+.c-progress--medium {
+	height: $progress-medium-height;
+}
+
+
+/* Style variants
+   ========================================================================== */
+
+.c-progress--danger {
+	.c-progress__bar {
+		@include linear-gradient(to bottom, $red-100, $red-300);
+	}
+}
+
+.c-progress--info {
+	.c-progress__bar { 
+		@include linear-gradient(to bottom, #2DA1F8, #1991EB);
+	}
+}
+
+.c-progress--primary {
+	.c-progress__bar {
+		@include linear-gradient(to bottom, $gunmetal-100, $gunmetal-400);
+	}
+}
+
+.c-progress--success {
+	.c-progress__bar {
+		@include linear-gradient(to bottom, #5AD946, #2BB415);
+	}
+}
+
+.c-progress--warning {
+	.c-progress__bar {
+		@include linear-gradient(to bottom, #F8CF5D, #FDC018);
+	}
+}
+
+.c-progress--fancy {
+	.c-progress__bar {
+		@include linear-gradient(to bottom, #9D90E4, #8261E6);
+	}
+}
+
+/**
+ * Multi-level progress bars
+ */
+
+.c-progress__bar {
+	.c-progress__bar {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		background-color: red;
+		z-index: $z-index-200;
+	}
+}

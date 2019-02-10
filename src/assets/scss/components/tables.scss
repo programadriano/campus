@@ -1,0 +1,171 @@
+/* ==========================================================================
+   #TABLES
+   ========================================================================== */
+
+/**
+ * 1. The border-collapse CSS property specifies that the table's borders are
+ *    collapsed and it means that adjacent cells share borders.
+ *
+ * 2. Show horizontal scroll-bar when table doesn't fit into its container,
+ *    it's known as responsive table.
+ */
+
+.c-table {
+	display: table;
+	width: 100%;
+	max-width: 100%;
+	border: $table-border-width solid $table-border-color;
+	border-radius: $table-border-radius;
+	background-color: $table-background-color;
+	border-collapse: collapse; /* [1] */
+
+	@include respond-to($breakpoint-desktop){
+		display: block; /* [2] */
+		overflow-x: auto; /* [2] */
+		overflow-y: hidden; /* [2] */
+	}
+}
+
+//
+// UNDER DEVELOPMENT
+//
+.c-table--fixed {
+	table-layout: fixed;
+}
+
+/**
+ * Table title/caption
+ * <caption>
+ */
+
+.c-table__title {
+	position: relative;
+	padding: 25px 30px;
+	border: 1px solid #E6EAEE;
+	border-bottom: 0;
+	border-radius: 4px 4px 0 0;
+	background-color: #fff;
+	color: #354052;
+	font-size: 24px;
+	text-align: left;
+
+	small {
+		display: inline-block;
+		margin-left: 10px;
+		color: #7F8FA4;
+		font-size: 14px;
+
+		// divider
+		&::before {
+			display: inline-block;
+			position: relative;
+			bottom: -2px;
+			width: 1px;
+			height: 14px;
+			margin-right: 12px;
+			background-color: #DFE3E9;
+			content: "";
+		}
+	}
+}
+
+/**
+ * A small icon in table title used to perform general action on table like
+ * downloading table content as a report.
+ */
+.c-table__title-action {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	color: #AFB4BB;
+	font-size: 22px;
+}
+
+/**
+ * Table Head
+ *
+ * Slimmer version of table's head with less sapcing and darker background
+ */
+
+.c-table__head--slim {
+	padding: 0;
+	background-color: $table-head-slim-background-color;
+
+	.c-table__cell {
+		padding: $table-head-cell-padding;
+	}
+}
+
+
+/**
+ * Table Row
+ */
+
+.c-table__row {
+	border-top: $table-border-width solid $table-border-color; /* [1] */
+	border-bottom: $table-border-width solid $table-border-color; /* [1] */
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.c-table__row--success,
+.c-table__row--danger,
+.c-table__row--info,
+.c-table__row--warning {
+	border-left: 3px solid;
+}
+
+.c-table__row--success {
+	border-left-color: $color-success;
+}
+
+.c-table__row--danger {
+	border-left-color: $color-danger;
+}
+
+.c-table__row--info {
+	border-left-color: $color-info;
+}
+
+.c-table__row--warning {
+	border-left-color: $color-warning;
+}
+
+
+/**
+ * Table Cell
+ */
+
+.c-table__cell {
+	padding: $table-cell-padding;
+	color: $table-cell-color;
+	font-size: $table-cell-font-size;
+	font-weight: $table-cell-font-weight;
+	text-align: left;
+	white-space: nowrap;
+	vertical-align: middle;
+
+	&:last-child {
+		padding-right: $spacer;
+	}
+}
+
+.c-table__cell--head {
+	color: $color-mute;
+	font-size: $text-font-size;
+	font-weight: $font-weight-semibold;
+}
+
+
+/**
+ * Table cell with image
+ *
+ * 2. Use flexbox to make sure all table-cell content is vertically centered.
+ */
+
+.c-table__cell--img {
+	display: flex; /* [2] */
+	align-items: center;
+}

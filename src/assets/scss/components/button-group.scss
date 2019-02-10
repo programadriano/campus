@@ -1,0 +1,43 @@
+/* ==========================================================================
+   #BUTTON GROUP
+   ========================================================================== */
+
+/**
+  * Button Group is a series of buttons grouped together on a single line.
+  */
+
+.c-button-group {
+	display: inline-flex;
+
+	> .c-button:first-child {
+		border-top-right-radius: 0;
+		border-bottom-right-radius: 0;
+	}
+
+	> .c-button:last-child {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+	}
+
+	> .c-button:not(:first-child):not(:last-child) {
+		border-radius: 0;
+	}
+
+	> .c-button + .c-button {
+		border-left: 0;
+	}
+}
+
+
+/**
+ * Force button group to take full width.
+ */
+
+.c-button-group--fullwidth {
+	display: flex;
+	width: 100%;
+
+	> .c-button {
+		width: 100%;
+	}
+}

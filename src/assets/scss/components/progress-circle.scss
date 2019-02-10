@@ -1,0 +1,16 @@
+// =============================================================================
+// # PROGRESS CIRCLE 
+// =============================================================================
+
+/**
+  * Progress 
+  */
+
+
+.c-progress-circle {
+	width: 50px;
+	height: 50px;
+	border: 5px solid $blue-200;
+	border-style: inside;
+	border-radius: 100%;
+}
