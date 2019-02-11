@@ -1,5 +1,5 @@
 
-export class ComercialPlain {
+export class Products {
 
     public CodigoBarras?: string;
     public Nome?: string;

@@ -2,7 +2,7 @@ import { HttpClient, HttpEventType } from '@angular/common/http';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 import { ComercialPlainService } from 'src/app/services/comercial-plain.service';
-import { ComercialPlain } from 'src/app/models/comercialPlain';
+import { Products } from 'src/app/models/products';
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { Router } from '@angular/router';
 import { take } from 'rxjs/operators';
@@ -16,16 +16,14 @@ import 'rxjs/add/operator/catch';
 })
 export class PlanosComponent implements OnInit {
   public obj: any;
-  public comercialPlain: ComercialPlain[];
-  public comercialP: ComercialPlain;
+  public products: Products[];
+  public product: Products;
 
   constructor(
     private comercialPlainService: ComercialPlainService,
-    private alertService: AlertService,
-    private http: HttpClient,
-    private _router: Router
+    private alertService: AlertService
   ) {
-    this.comercialP = new ComercialPlain();
+    this.product = new Products();
   }
 
   ngOnInit() {
@@ -35,11 +33,10 @@ export class PlanosComponent implements OnInit {
   getAll() {
     this.comercialPlainService
       .getAll()
-      .pipe(take(1))
       .subscribe(
         data => {
           this.obj = data;
-          this.comercialPlain = this.obj;
+          this.products = this.obj;
         },
         err => {
           console.log(err);
@@ -47,11 +44,26 @@ export class PlanosComponent implements OnInit {
       );
   }
 
-  delete(id, title) {
+  getById(codigoBarras) {
+    this.comercialPlainService
+      .getById(codigoBarras)
+      .subscribe(
+        data => {
+          this.obj = data;
+          this.product = this.obj;
+        },
+        err => {
+          console.log(err);
+        }
+      );
+  }
+
+  delete(id, nome) {
     this.alertService
-      .question('', `Deseja realmente deletar esse ${title}?`, 'OK', 'Não')
+      .question('', `Deseja realmente deletar esse ${nome}?`, 'OK', 'Não')
       .then(willDelete => {
         if (willDelete.value !== undefined) {
+
         }
       })
       .catch(error => {
@@ -59,12 +71,43 @@ export class PlanosComponent implements OnInit {
       });
   }
 
-  update() {}
 
-  save() {}
+  sendForm(codigoBarras, nome, preco) {
+    this.product.CodigoBarras = codigoBarras == "" ? Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) : codigoBarras;
+    this.product.Nome = nome;
+    this.product.Preco = preco;
+
+
+    if (codigoBarras == "") {
+      this.save();
+    } else {
+      this.update();
+    }
+
+  }
+
+  update() {
+    this.comercialPlainService
+      .update(this.product)
+      .subscribe(
+        this.cbSaveSuccess.bind(this),
+        this.cbHandlerError.bind(this)
+      );
+  }
+
+  save() {
+    this.comercialPlainService
+      .save(this.product)
+      .subscribe(
+        this.cbSaveSuccess.bind(this),
+        this.cbHandlerError.bind(this)
+      );
+
+  }
 
   cbSaveSuccess(response) {
-    return this.alertService.success('', 'Plano enviado com sucesso', 'OK');
+    this.getAll();
+    return this.alertService.success('', 'Produto enviado com sucesso', 'OK');
   }
 
   cbHandlerError(error) {

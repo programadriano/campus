@@ -3,7 +3,7 @@ import { Http } from '@angular/http';
 import { HttpUtilService } from '../shared/services/http-util.service';
 import { Observable } from 'rxjs';
 
-import { ComercialPlain } from '../models/comercialPlain';
+import { Products } from '../models/products';
 
 @Injectable({
   providedIn: 'root'
@@ -11,33 +11,23 @@ import { ComercialPlain } from '../models/comercialPlain';
 export class ComercialPlainService {
   private path = 'produtos';
 
-  constructor(private http: Http, private httpUtil: HttpUtilService) {}
+  constructor(private http: Http, private httpUtil: HttpUtilService) { }
 
-  getById(id): Observable<ComercialPlain> {
+  getById(id): Observable<Products> {
     return this.http
       .get(this.httpUtil.url(this.path + '/' + id), this.httpUtil.headers())
       .map(this.httpUtil.extrairDados)
       .catch(this.httpUtil.processarErros);
   }
 
-  getAll(): Observable<ComercialPlain[]> {
+  getAll(): Observable<Products[]> {
     return this.http
       .get(this.httpUtil.url(this.path), this.httpUtil.headers())
       .map(this.httpUtil.extrairDados)
       .catch(this.httpUtil.processarErros);
   }
 
-  getTotal(): Observable<Object> {
-    return this.http
-      .get(
-        this.httpUtil.url(this.path + '/total/comercialplain'),
-        this.httpUtil.headers()
-      )
-      .map(this.httpUtil.extrairDados)
-      .catch(this.httpUtil.processarErros);
-  }
-
-  search(term): Observable<ComercialPlain[]> {
+  search(term): Observable<Products[]> {
     return this.http
       .get(
         this.httpUtil.url(this.path + '/admin/search/' + term),
@@ -47,33 +37,39 @@ export class ComercialPlainService {
       .catch(this.httpUtil.processarErros);
   }
 
-  delete(id): Observable<ComercialPlain[]> {
+  delete(id): Observable<Products[]> {
     return this.http
       .delete(this.httpUtil.url(this.path + '/' + id), this.httpUtil.headers())
       .map(this.httpUtil.extrairDados)
       .catch(this.httpUtil.processarErros);
   }
 
-  save(planos) {
-    const comercial = {
-      // "editoria": planos.title,
-    };
+  save(vm) {
+
+    const produto = {
+      "CodigoBarras": vm.CodigoBarras,
+      "Nome": vm.Nome,
+      "Preco": vm.Preco
+    };    
 
     return this.http
-      .post(this.httpUtil.url(this.path), comercial, this.httpUtil.headers())
+      .post(this.httpUtil.url(this.path), produto, this.httpUtil.headers())
       .map(this.httpUtil.extrairDados)
       .catch(this.httpUtil.processarErros);
   }
 
-  update(id, planos) {
-    const comercial = {
-      // "editoria": planos.title,
+  update(vm) {
+
+    const produto = {
+      "CodigoBarras": vm.CodigoBarras,
+      "Nome": vm.Nome,
+      "Preco": vm.Preco
     };
 
     return this.http
       .put(
-        this.httpUtil.url(this.path + '/' + id),
-        comercial,
+        this.httpUtil.url(this.path),
+        produto,
         this.httpUtil.headers()
       )
       .map(this.httpUtil.extrairDados)
