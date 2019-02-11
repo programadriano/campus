@@ -4,12 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URL: "https://localhost:5001/api/",
-  API_UPLOAD_EXCEL: "http://apiuploadcomercial.bandeirantes.com.br/api/",
-  API_URL_AUTH: "//apiauth.bandeirantes.com.br/",
-  API_UPLOAD: "https://paauth.bandeirantes.com.br/Home/Image",
-  //API_UPLOAD_EXCEL: "http://localhost:47977/api/",
- // API_URL: "http://localhost:3050/api/v1/",
+  API_URL: "//localhost:44372/api/v1/"
 };
 
 /*
