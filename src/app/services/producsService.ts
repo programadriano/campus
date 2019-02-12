@@ -8,7 +8,7 @@ import { Products } from '../models/products';
 @Injectable({
   providedIn: 'root'
 })
-export class ComercialPlainService {
+export class ProducsService {
   private path = 'produtos';
 
   constructor(private http: Http, private httpUtil: HttpUtilService) { }
@@ -50,7 +50,7 @@ export class ComercialPlainService {
       "CodigoBarras": vm.CodigoBarras,
       "Nome": vm.Nome,
       "Preco": vm.Preco
-    };    
+    };
 
     return this.http
       .post(this.httpUtil.url(this.path), produto, this.httpUtil.headers())
