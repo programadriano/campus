@@ -1,7 +1,7 @@
 
 export class Products {
 
-    public CodigoBarras?: string;
-    public Nome?: string;
-    public Preco?: string;
+    public codigoBarras?: string;
+    public nome?: string;
+    public preco?: string;
 }

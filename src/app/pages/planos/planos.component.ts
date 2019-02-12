@@ -75,7 +75,8 @@ export class PlanosComponent implements OnInit {
   }
 
   sendForm(codigoBarras, nome, preco) {
-    this.product.CodigoBarras =
+
+    this.product.codigoBarras =
       codigoBarras === ""
         ? Math.random()
             .toString(36)
@@ -84,8 +85,8 @@ export class PlanosComponent implements OnInit {
             .toString(36)
             .substring(2, 15)
         : codigoBarras;
-    this.product.Nome = nome;
-    this.product.Preco = preco;
+    this.product.nome = nome;
+    this.product.preco = preco;
 
     if (codigoBarras === "") {
       this.save();
@@ -108,6 +109,7 @@ export class PlanosComponent implements OnInit {
 
   cbSaveSuccess(response) {
     this.getAll();
+    this.clearForm();
     return this.alertService.success("", "Produto enviado com sucesso", "OK");
   }
 
@@ -117,6 +119,12 @@ export class PlanosComponent implements OnInit {
       "Ocorreu um erro ao cadastrar o Plano",
       "OK"
     );
+  }
+
+  clearForm(){
+    this.product.codigoBarras = "";
+    this.product.nome = "";
+    this.product.preco = "";
   }
 
   upHandlerError() {

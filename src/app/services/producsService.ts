@@ -47,9 +47,9 @@ export class ProducsService {
   save(vm) {
 
     const produto = {
-      "CodigoBarras": vm.CodigoBarras,
-      "Nome": vm.Nome,
-      "Preco": vm.Preco
+      "CodigoBarras": vm.codigoBarras,
+      "Nome": vm.nome,
+      "Preco": vm.preco
     };
 
     return this.http
@@ -61,9 +61,9 @@ export class ProducsService {
   update(vm) {
 
     const produto = {
-      "CodigoBarras": vm.CodigoBarras,
-      "Nome": vm.Nome,
-      "Preco": vm.Preco
+      "CodigoBarras": vm.codigoBarras,
+      "Nome": vm.nome,
+      "Preco": vm.preco
     };
 
     return this.http

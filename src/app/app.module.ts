@@ -1,3 +1,4 @@
+import {FooterComponent} from './components/footer/footer.component';
 import {HttpUtilService} from './shared/services/http-util.service';
 import { HeaderComponent } from './components/header/header.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +25,7 @@ import { PlanosComponent } from './pages/planos/planos.component';
 import { AlertService } from './shared/services/alert.service';
 
 @NgModule({
-  declarations: [AppComponent, PlanosComponent, HeaderComponent],
+  declarations: [AppComponent, PlanosComponent, HeaderComponent, FooterComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
